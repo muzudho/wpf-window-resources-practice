@@ -1,0 +1,46 @@
+﻿<Window x:Class="WpfWindowResourcesPractice.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfWindowResourcesPractice"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+
+    <!-- そのウィンドウだけのリソースを定義することができます -->
+    <Window.Resources>
+        <!-- きふわらべの髪とインナーシャツの蘭色 -->
+        <Color x:Key="kifuwarabeOrchid">#b36ee7</Color>
+
+        <!-- きふわらべの上着の水色 -->
+        <Color x:Key="kifuwarabeSkyBlue">#79c4ee</Color>
+
+        <!-- 文字などの濃い色を塗るブラシ -->
+        <SolidColorBrush x:Key="strokeColor" Color="{StaticResource kifuwarabeOrchid}"/>
+
+        <!-- コントロールなどの濃い色を塗るブラシ -->
+        <SolidColorBrush x:Key="controlBackgroundColor" Color="{StaticResource kifuwarabeOrchid}"/>
+
+        <!-- Windowの背景などの濃い色を塗るブラシ -->
+        <SolidColorBrush x:Key="windowBackgroundColor" Color="{StaticResource kifuwarabeSkyBlue}"/>
+    </Window.Resources>
+
+    <!-- ウィンドウ全体を覆うグリッド -->
+    <Grid Background="{StaticResource windowBackgroundColor}">
+        <!-- 4行0列 -->
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="1" Content="きふわらべの将棋盤" FontSize="64"
+               Foreground="{StaticResource strokeColor}"  
+               HorizontalAlignment="Center"/>
+
+        <Button Grid.Row="2" Width="256" Height="32" FontSize="14"
+                Content="floodgateにつなぐ"
+                Foreground="#fcf1e7" Background="{StaticResource controlBackgroundColor}"/>
+    </Grid>
+</Window>
